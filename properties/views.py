@@ -15,7 +15,7 @@ class PropertyViewSet(viewsets.ViewSet):
     A simple ViewSet for listing or retrieving properties.
     """
     @cache_page(60 * 15)
-    def property_list(self, request):
+    def property_list(self, request: "HttpResponse" = None):
         contents = {
             "title": request.user.get_title()
             "description": request.user.get_description(),
